@@ -1565,24 +1565,37 @@ body.swal2-shown{
 }
 @media screen and (max-width:600px){
 
-    .top-alert{
-        margin-top:0 !important;
+    body{
+        display:block !important;
+        align-items:initial !important;
+        justify-content:initial !important;
+        padding:0 !important;
+        margin:0 !important;
     }
 
-}@media screen and (max-width:600px){
+    .app{
+        width:390px !important;
+        max-width:100% !important;
+        margin:0 auto !important;
+    }
 
     .phone.home-page{
-        margin-top:0 !important;
+        width:390px !important;
+        max-width:100% !important;
+        min-height:100vh !important;
+
+        margin:0 !important;
         padding-top:0 !important;
     }
 
     .home-page .content{
-        margin-top:0 !important;
+        margin:0 !important;
         padding-top:0 !important;
     }
 
     .home-page header{
         margin-top:0 !important;
+        padding-top:0 !important;
     }
 
 }
