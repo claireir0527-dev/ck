@@ -280,7 +280,7 @@ if(document.getElementById("date")){
 
         dateFormat:"Y-m-d",
 
-        disableMobile:true,
+        disableMobile:false,
 
       position:"center"
  });
