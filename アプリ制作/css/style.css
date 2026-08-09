@@ -1569,4 +1569,20 @@ body.swal2-shown{
         margin-top:0 !important;
     }
 
+}@media screen and (max-width:600px){
+
+    .phone.home-page{
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+
+    .home-page .content{
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+
+    .home-page header{
+        margin-top:0 !important;
+    }
+
 }
