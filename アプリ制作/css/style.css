@@ -1563,3 +1563,10 @@ body.swal2-shown{
     }
 
 }
+@media screen and (max-width:600px){
+
+    .top-alert{
+        margin-top:0 !important;
+    }
+
+}
