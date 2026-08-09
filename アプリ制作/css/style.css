@@ -1544,3 +1544,22 @@ body.swal2-shown{
 .app{
     margin-top:0 !important;
 }
+@media screen and (max-width:600px){
+
+    html,
+    body{
+        margin:0 !important;
+        padding:0 !important;
+        min-height:100vh !important;
+    }
+
+    .app{
+        margin-top:0 !important;
+    }
+
+    .phone{
+        margin-top:0 !important;
+        padding-top:0 !important;
+    }
+
+}
