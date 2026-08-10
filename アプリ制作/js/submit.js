@@ -555,9 +555,6 @@ function goHome(){
 
 window.onload = function(){
 
-    
-    });
-
     let index = localStorage.getItem("editSubmitIndex");
 
     if(index !== null){
@@ -573,16 +570,16 @@ window.onload = function(){
 
         document.querySelector(".save").textContent =
         "💾 更新";
+
         document.getElementById("homeBtn").textContent =
-"🔙 一覧に戻る";
+        "🔙 一覧に戻る";
 
+        document.getElementById("homeBtn").onclick =
+        function(){
 
-document.getElementById("homeBtn").onclick =
-function(){
+            location.href="tasks.html";
 
-    location.href="tasks.html";
-
-};
+        };
     }
 
 }
