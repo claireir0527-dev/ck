@@ -1599,3 +1599,17 @@ body.swal2-shown{
     }
 
 }
+/* ===================================
+   黒い靄＋メッセージを画面中央に固定
+=================================== */
+
+.swal2-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+}
+
+.swal2-popup {
+    margin: 0 !important;
+}
