@@ -555,9 +555,7 @@ function goHome(){
 
 window.onload = function(){
 
-    flatpickr("#date",{
-        locale:"ja",
-        dateFormat:"Y-m-d"
+    
     });
 
     let index = localStorage.getItem("editSubmitIndex");
