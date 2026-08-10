@@ -253,9 +253,11 @@ function setupDatePicker(){
 
         dateFormat: "Y-m-d",
 
-        disableMobile: false,
+        allowInput: false,
 
-        position: "auto"
+        disableMobile: true,
+
+        position: "center"
 
     });
 
