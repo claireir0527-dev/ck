@@ -1631,12 +1631,9 @@ body.swal2-shown{
 .swal2-popup {
     position: relative !important;
 
-    top: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    left: auto !important;
-
+    top: 80px !important;
+    
     margin: 0 !important;
 
-    transform: none !important;
+    
 }
