@@ -278,24 +278,15 @@ function backSubmit(){
 
     if(title !== "" || date !== ""){
 
-        Swal.fire({
-
-            target: ".app",
-
-            position: "top",
-
-            icon: "warning",
-
-            title: "保存されていません",
-
-            text: "入力内容があります",
-
-            width: 280,
-
-            confirmButtonColor: "#6b3df5"
-
-        });
-
+       Swal.fire({
+    icon: "warning",
+    title: "提出物名を入力してください",
+    width: 280,
+    customClass: {
+        popup: "small-alert"
+    },
+    confirmButtonColor: "#6b3df5"
+});
     }
     else{
 
