@@ -1685,3 +1685,18 @@ body.swal2-shown{
     box-sizing:border-box;
     max-width:100%;
 }
+.short-page{
+    width:100%;
+    max-width:390px;
+    overflow:hidden;
+}
+
+.short-page #noticeTime{
+    display:block;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    box-sizing:border-box !important;
+    padding:14px !important;
+    margin:10px 0 !important;
+}
