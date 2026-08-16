@@ -194,13 +194,20 @@ button{
 input,
 textarea{
     width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+
     padding:14px;
     margin:10px 0;
+
     border:2px solid #ddd;
     border-radius:15px;
+
     font-size:16px;
     outline:none;
+
     transition:.2s;
+
     background:#fff;
 }
 
