@@ -190,26 +190,19 @@ button{
 =================================== */
 
 /* ---------- 入力欄 ---------- */
+
 input,
 textarea{
     width:100%;
-    max-width:100%;
-    box-sizing:border-box;
-
     padding:14px;
     margin:10px 0;
-
     border:2px solid #ddd;
     border-radius:15px;
-
     font-size:16px;
     outline:none;
-
     transition:.2s;
-
     background:#fff;
 }
-
 
 input:focus,
 textarea:focus{
@@ -1643,158 +1636,4 @@ body.swal2-shown{
     margin: 0 !important;
 
     
-}
-
-.notice-date-time{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    white-space:nowrap;
-}
-.notice-date-row{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:4px;
-}
-
-.notice-remain{
-    margin-top:2px;
-}/* 通知の残り日数の色 */
-
-.notice-remain.today{
-    color:red !important;
-}
-
-.notice-remain.tomorrow{
-    color:orange !important;
-}
-
-.notice-remain.expired{
-    color:gray !important;
-}
-#noticeTime{
-    width:100%;
-    max-width:100%;
-    min-width:0;
-    box-sizing:border-box;
-}
-#noticeText,
-#noticeDate,
-#noticeTime{
-    box-sizing:border-box;
-    max-width:100%;
-}/* スマホで通知追加画面を画面内に収める */
-
-@media screen and (max-width:600px){
-
-    .app{
-        width:100% !important;
-        max-width:390px !important;
-        box-sizing:border-box !important;
-    }
-
-    .phone{
-        width:100% !important;
-        max-width:390px !important;
-        box-sizing:border-box !important;
-    }
-
-    .short-page input{
-        width:100% !important;
-        max-width:100% !important;
-        min-width:0 !important;
-        box-sizing:border-box !important;
-    }
-
-    #noticeTime{
-        width:100% !important;
-        max-width:100% !important;
-        min-width:0 !important;
-        box-sizing:border-box !important;
-    }
-}
-/* ==============================
-   スマホ表示だけの修正
-================================ */
-
-@media screen and (max-width: 600px){
-
-    .app{
-        width:100%;
-        max-width:390px;
-        padding:0;
-    }
-
-    .phone{
-        width:100%;
-        max-width:390px;
-        box-sizing:border-box;
-        overflow-x:hidden;
-    }
-
-    #noticeText,
-    #noticeDate,
-    #noticeTime{
-        width:100%;
-        max-width:100%;
-        min-width:0;
-        box-sizing:border-box;
-    }
-
-    #noticeTime{
-        -webkit-appearance:none;
-        appearance:none;
-    }
-
-}
-<div class="time-input">
-    <span>🕐</span>
-    <input
-        id="noticeTime"
-        type="time"
-    >
-</div>
-@media screen and (max-width: 600px){
-
-    html,
-    body{
-        width:100%;
-        max-width:100%;
-        margin:0;
-        padding:0;
-        overflow-x:hidden;
-    }
-
-    .app{
-        width:100%;
-        max-width:390px;
-        margin:0 auto;
-        padding:0;
-        overflow:hidden;
-    }
-
-    .phone{
-        width:100%;
-        max-width:390px;
-        min-width:0;
-        margin:0;
-        padding:20px;
-        box-sizing:border-box;
-        overflow:hidden;
-    }
-
-    .phone > *{
-        max-width:100%;
-        box-sizing:border-box;
-    }
-
-    #noticeText,
-    #noticeDate,
-    #noticeTime{
-        width:100% !important;
-        max-width:100% !important;
-        min-width:0 !important;
-        box-sizing:border-box !important;
-    }
 }

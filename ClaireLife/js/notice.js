@@ -41,111 +41,90 @@ function showNotice(){
 
         else{
 
-            let today = new Date();
+    let today = new Date();
 
-            today.setHours(0,0,0,0);
-
-
-            let target = new Date(notice.date);
-
-            target.setHours(0,0,0,0);
+    today.setHours(0,0,0,0);
 
 
-            let diff =
-            Math.ceil(
-                (target - today) / (1000 * 60 * 60 * 24)
-            );
+    let target = new Date(notice.date);
+
+    target.setHours(0,0,0,0);
 
 
-            let remainText;
-            let remainClass;
+    let diff =
+    Math.ceil(
+        (target - today) / (1000 * 60 * 60 * 24)
+    );
 
 
-            if(diff < 0){
-
-                remainText = "❌ 期限切れ";
-                remainClass = "expired";
-
-            }
-
-            else if(diff === 0){
-
-                remainText = "⚠️ 今日";
-                remainClass = "today";
-
-            }
-
-            else if(diff === 1){
-
-                remainText = "⏰ 明日";
-                remainClass = "tomorrow";
-
-            }
-
-            else{
-
-                remainText = "あと" + diff + "日";
-                remainClass = "";
-
-            }
+    let remainText;
+    let remainClass;
 
 
-            // 時間がある場合だけ表示
-            let timeText = "";
+    if(diff < 0){
 
-            if(notice.time){
+        remainText = "❌ 期限切れ";
+        remainClass = "expired";
 
-                timeText =
-                `<br>⏰ ${notice.time}`;
+    }
 
-            }
+    else if(diff === 0){
+
+        remainText = "⚠️ 今日";
+        remainClass = "today";
+
+    }
+
+    else if(diff === 1){
+
+        remainText = "⏰ 明日";
+        remainClass = "tomorrow";
+
+    }
+
+    else{
+
+        remainText = "あと" + diff + "日";
+        remainClass = "";
+
+    }
 
 
-            div.innerHTML =
-            `
-            <div>
+div.innerHTML =
+`
 
-                🔔 ${notice.text}
+<div>
 
+    🔔 ${notice.text}
 
-               <div class="notice-date-time">
+    <br>
 
-    <span>
-        📅 ${notice.date}
-    </span>
+    📅 ${notice.date}
 
-    ${notice.time ? `
-    <span>
-        ⏰ ${notice.time}
-    </span>
-    ` : ""}
+    <br>
 
-</div>
-
-<div class="notice-remain ${remainClass}">
+    <span class="${remainClass}">
     ${remainText}
+    </span>
+
 </div>
 
-            </div>
+<div class="task-buttons">
 
-            <div class="task-buttons">
+<button class="edit-btn" onclick="editNotice(${index})">
+編集
+</button>
 
-                <button
-                    class="edit-btn"
-                    onclick="editNotice(${index})">
-                    編集
-                </button>
+<button class="done-btn" onclick="deleteNotice(${index})">
+削除
+</button>
 
-                <button
-                    class="done-btn"
-                    onclick="deleteNotice(${index})">
-                    削除
-                </button>
+</div>
 
-            </div>
-            `;
 
-        }
+    `;
+
+}
 
 
         list.appendChild(div);
@@ -153,9 +132,6 @@ function showNotice(){
     });
 
 }
-
-
-
 function editNotice(index){
 
     localStorage.setItem(
@@ -168,7 +144,6 @@ function editNotice(index){
 }
 
 
-
 function addNotice(){
 
     let text =
@@ -177,32 +152,12 @@ function addNotice(){
     let date =
     document.getElementById("noticeDate").value;
 
-    let time =
-    document.getElementById("noticeTime").value;
 
     if(text == "" || date == ""){
 
-    Swal.fire({
+        return;
 
-        icon: "warning",
-
-        title: "入力してください",
-
-        text: "通知内容と日付を入力してください",
-
-        width: 280,
-
-        customClass: {
-            popup: "small-alert"
-        },
-
-        confirmButtonColor: "#6b3df5"
-
-    });
-
-    return;
-
-}
+    }
 
 
     let notices =
@@ -217,11 +172,9 @@ function addNotice(){
 
         notices[editIndex] = {
 
-            text: text,
+            text:text,
 
-            date: date,
-
-            time: time
+            date:date
 
         };
 
@@ -233,15 +186,15 @@ function addNotice(){
 
     }else{
 
+
         notices.push({
 
-            text: text,
+            text:text,
 
-            date: date,
-
-            time: time
+            date:date
 
         });
+
 
     }
 
@@ -252,9 +205,10 @@ function addNotice(){
     );
 
 
-    location.href = "notice.html";
+    location.href="notice.html";
 
 }
+
 
 
 function deleteNotice(index){
@@ -277,7 +231,6 @@ function deleteNotice(index){
 showNotice();
 
 
-
 if(document.getElementById("noticeDate")){
 
     flatpickr("#noticeDate",{
@@ -291,20 +244,14 @@ if(document.getElementById("noticeDate")){
         disableMobile:true,
 
         position:"center"
-
-    });
-
+ });
 }
-
-
 
 function cancelNotice(){
 
     document.getElementById("noticeText").value="";
 
     document.getElementById("noticeDate").value="";
-
-    document.getElementById("noticeTime").value="";
 
 
     document.getElementById("cancelNoticeBtn")
@@ -327,9 +274,6 @@ function checkNoticeInput(){
     let date =
     document.getElementById("noticeDate").value;
 
-    let time =
-    document.getElementById("noticeTime").value;
-
 
     let cancel =
     document.getElementById("cancelNoticeBtn");
@@ -340,17 +284,23 @@ function checkNoticeInput(){
 
 
 
-    if(text != "" || date != "" || time != ""){
+    if(text != "" || date != ""){
+
 
         cancel.style.display="block";
 
+
         home.style.display="none";
+
 
     }else{
 
+
         cancel.style.display="none";
 
+
         home.style.display="block";
+
 
     }
 
@@ -376,25 +326,11 @@ checkNoticeInput
 
 
 
-let noticeTime =
-document.getElementById("noticeTime");
-
-if(noticeTime){
-
-    noticeTime.addEventListener(
-        "change",
-        checkNoticeInput
-    );
-
-}
-
 function goHomeNotice(){
 
     location.href="index.html";
 
 }
-
-
 
 function backNotice(){
 
@@ -405,38 +341,39 @@ function backNotice(){
     let date =
     document.getElementById("noticeDate").value;
 
-    let time =
-    document.getElementById("noticeTime").value;
 
 
+    if(text != "" || date != ""){
 
-    if(text != "" || date != "" ){
 
         Swal.fire({
 
-            icon: "warning",
+    icon: "warning",
 
-            title: "保存されていません",
+    title: "保存されていません",
 
-            text: "入力内容があります",
+    text: "入力内容があります",
 
-            width: 280,
+    width: 280,
 
-            customClass: {
-                popup: "small-alert"
-            },
+    customClass: {
+        popup: "small-alert"
+    },
 
-            confirmButtonColor: "#6b3df5"
+    confirmButtonColor: "#6b3df5"
 
-        });
+});
 
     }else{
 
+
         location.href="notice-menu.html";
+
 
     }
 
 }
+
 window.onload = function(){
 
     let index =
@@ -457,39 +394,17 @@ window.onload = function(){
         notices[index].date;
 
 
-        // 時間を読み込む
-        let savedTime =
-        notices[index].time || "";
-
-
-        document.getElementById("noticeTime").value =
-        savedTime;
-
-
-        // 時間ボタンにも表示
-        if(savedTime){
-
-            document.getElementById("timeButton").textContent =
-            "⏰ " + savedTime;
-
-        }
-
-
         document.querySelector(".save").textContent =
         "💾 更新";
+document.getElementById("homeNoticeBtn").textContent =
+"🔙 一覧に戻る";
 
+document.getElementById("homeNoticeBtn").onclick =
+function(){
 
-        document.getElementById("homeNoticeBtn").textContent =
-        "🔙 一覧に戻る";
+    location.href="notice.html";
 
-
-        document.getElementById("homeNoticeBtn").onclick =
-        function(){
-
-            location.href="notice.html";
-
-        };
-
+};
 
     }else{
 
@@ -497,328 +412,5 @@ window.onload = function(){
         "💾 保存";
 
     }
-
-}
-
-
-
-/* ===================================
-   時計型 時間選択
-=================================== */
-
-let selectedHour = 0;
-
-let selectedMinute = 0;
-
-let timeMode = "hour";
-
-
-function openTimePicker(){
-
-    let modal =
-    document.getElementById("timeModal");
-
-    let savedTime =
-    document.getElementById("noticeTime").value;
-
-
-    // すでに時間が保存されている場合
-    if(savedTime){
-
-        let parts =
-        savedTime.split(":");
-
-        selectedHour =
-        parseInt(parts[0]);
-
-        selectedMinute =
-        parseInt(parts[1]);
-
-    }else{
-
-        let now = new Date();
-
-        selectedHour =
-        now.getHours();
-
-        selectedMinute =
-        Math.round(now.getMinutes() / 5) * 5;
-
-        if(selectedMinute === 60){
-
-            selectedMinute = 0;
-
-            selectedHour++;
-
-            if(selectedHour === 24){
-                selectedHour = 0;
-            }
-
-        }
-
-    }
-
-
-    timeMode = "hour";
-
-    updateTimeDisplay();
-
-    createClock();
-
-    modal.classList.add("show");
-
-}
-
-
-function closeTimePicker(){
-
-    document
-    .getElementById("timeModal")
-    .classList.remove("show");
-
-}
-
-
-function selectHourMode(){
-
-    timeMode = "hour";
-
-    updateTimeDisplay();
-
-    createClock();
-
-}
-
-
-function selectMinuteMode(){
-
-    timeMode = "minute";
-
-    updateTimeDisplay();
-
-    createClock();
-
-}
-
-
-function updateTimeDisplay(){
-
-    document
-    .getElementById("hourDisplay")
-    .textContent =
-    String(selectedHour).padStart(2,"0");
-
-
-    document
-    .getElementById("minuteDisplay")
-    .textContent =
-    String(selectedMinute).padStart(2,"0");
-
-
-    document
-    .getElementById("hourDisplay")
-    .classList.toggle(
-        "active",
-        timeMode === "hour"
-    );
-
-
-    document
-    .getElementById("minuteDisplay")
-    .classList.toggle(
-        "active",
-        timeMode === "minute"
-    );
-
-}
-
-
-function createClock(){
-
-    let clock =
-    document.getElementById("clockNumbers");
-
-    clock.innerHTML = "";
-
-
-    let numbers;
-
-
-    if(timeMode === "hour"){
-
-        numbers =
-        [12,1,2,3,4,5,6,7,8,9,10,11];
-
-    }else{
-
-        numbers =
-        [0,5,10,15,20,25,30,35,40,45,50,55];
-
-    }
-
-
-    numbers.forEach((number,index)=>{
-
-        let div =
-        document.createElement("div");
-
-        div.className =
-        "clock-number";
-
-
-        let value =
-        number;
-
-
-        if(timeMode === "hour"){
-
-            if(value === selectedHour){
-
-                div.classList.add("selected");
-
-            }
-
-        }else{
-
-            if(value === selectedMinute){
-
-                div.classList.add("selected");
-
-            }
-
-        }
-
-
-        div.textContent =
-        String(number).padStart(2,"0");
-
-
-        let angle =
-        index * 30;
-
-
-        let radius = 95;
-
-
-        let center = 120;
-
-
-        let rad =
-        (angle - 90) * Math.PI / 180;
-
-
-        let x =
-        center + radius * Math.cos(rad);
-
-
-        let y =
-        center + radius * Math.sin(rad);
-
-
-        div.style.left =
-        x + "px";
-
-
-        div.style.top =
-        y + "px";
-
-
-        div.onclick =
-        function(){
-
-            if(timeMode === "hour"){
-
-                selectedHour =
-                value;
-
-                timeMode =
-                "minute";
-
-            }else{
-
-                selectedMinute =
-                value;
-
-            }
-
-
-            updateTimeDisplay();
-
-            createClock();
-
-        };
-
-
-        clock.appendChild(div);
-
-    });
-
-
-    updateClockHand();
-
-}
-
-
-function updateClockHand(){
-
-    let hand =
-    document.getElementById("clockHand");
-
-
-    let value;
-
-
-    if(timeMode === "hour"){
-
-        value =
-        selectedHour % 12;
-
-        let angle =
-        value * 30;
-
-        hand.style.transform =
-        `translate(-50%,-100%) rotate(${angle}deg)`;
-
-    }else{
-
-        value =
-        selectedMinute / 5;
-
-        let angle =
-        value * 30;
-
-        hand.style.transform =
-        `translate(-50%,-100%) rotate(${angle}deg)`;
-
-    }
-
-}
-
-
-function saveTimePicker(){
-
-    let time =
-    String(selectedHour).padStart(2,"0")
-    + ":"
-    +
-    String(selectedMinute).padStart(2,"0");
-
-
-    document
-    .getElementById("noticeTime")
-    .value =
-    time;
-
-
-    document
-    .getElementById("timeButton")
-    .textContent =
-    "⏰ " + time;
-
-
-    checkNoticeInput();
-
-
-    closeTimePicker();
 
 }
