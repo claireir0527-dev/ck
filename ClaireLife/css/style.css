@@ -1731,3 +1731,19 @@ body.swal2-shown{
 
     overflow:hidden !important;
 }
+#noticeTime{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    box-sizing:border-box !important;
+
+    padding:14px !important;
+    margin:10px 0 !important;
+
+    border:2px solid #ddd;
+    border-radius:15px;
+
+    font-size:16px;
+    background:#fff;
+}
