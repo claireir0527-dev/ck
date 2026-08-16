@@ -1712,38 +1712,5 @@ body.swal2-shown{
         max-width:100% !important;
         min-width:0 !important;
         box-sizing:border-box !important;
-    }/*  
-}/* 通知追加：時間入力をスマホ画面内に収める */
-#noticeTime{
-    display:block !important;
-
-    width:100% !important;
-    max-width:100% !important;
-    min-width:0 !important;
-
-    box-sizing:border-box !important;
-
-    -webkit-appearance:none;
-    appearance:none;
-
-    padding:14px !important;
-    margin:10px 0 !important;
-
-    overflow:hidden !important;
-}
-#noticeTime{
-    width:100% !important;
-    max-width:100% !important;
-    min-width:0 !important;
-    height:auto !important;
-    box-sizing:border-box !important;
-
-    padding:14px !important;
-    margin:10px 0 !important;
-
-    border:2px solid #ddd;
-    border-radius:15px;
-
-    font-size:16px;
-    background:#fff;
+    }
 }
