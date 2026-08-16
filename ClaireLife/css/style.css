@@ -1637,3 +1637,32 @@ body.swal2-shown{
 
     
 }
+
+.notice-date-time{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    white-space:nowrap;
+}
+.notice-date-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:4px;
+}
+
+.notice-remain{
+    margin-top:2px;
+}/* 通知の残り日数の色 */
+
+.notice-remain.today{
+    color:red !important;
+}
+
+.notice-remain.tomorrow{
+    color:orange !important;
+}
+
+.notice-remain.expired{
+    color:gray !important;
+}
