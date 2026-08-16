@@ -1748,3 +1748,10 @@ body.swal2-shown{
     }
 
 }
+<div class="time-input">
+    <span>🕐</span>
+    <input
+        id="noticeTime"
+        type="time"
+    >
+</div>
