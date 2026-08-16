@@ -1714,3 +1714,37 @@ body.swal2-shown{
         box-sizing:border-box !important;
     }
 }
+/* ==============================
+   スマホ表示だけの修正
+================================ */
+
+@media screen and (max-width: 600px){
+
+    .app{
+        width:100%;
+        max-width:390px;
+        padding:0;
+    }
+
+    .phone{
+        width:100%;
+        max-width:390px;
+        box-sizing:border-box;
+        overflow-x:hidden;
+    }
+
+    #noticeText,
+    #noticeDate,
+    #noticeTime{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        box-sizing:border-box;
+    }
+
+    #noticeTime{
+        -webkit-appearance:none;
+        appearance:none;
+    }
+
+}
