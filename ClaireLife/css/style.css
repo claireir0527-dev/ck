@@ -1666,3 +1666,15 @@ body.swal2-shown{
 .notice-remain.expired{
     color:gray !important;
 }
+#noticeTime{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    box-sizing:border-box;
+}
+#noticeText,
+#noticeDate,
+#noticeTime{
+    box-sizing:border-box;
+    max-width:100%;
+}
