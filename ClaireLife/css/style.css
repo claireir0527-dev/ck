@@ -190,7 +190,6 @@ button{
 =================================== */
 
 /* ---------- 入力欄 ---------- */
-
 input,
 textarea{
     width:100%;
@@ -210,6 +209,7 @@ textarea{
 
     background:#fff;
 }
+
 
 input:focus,
 textarea:focus{
@@ -1684,19 +1684,33 @@ body.swal2-shown{
 #noticeTime{
     box-sizing:border-box;
     max-width:100%;
-}
-.short-page{
-    width:100%;
-    max-width:390px;
-    overflow:hidden;
-}
+}/* スマホで通知追加画面を画面内に収める */
 
-.short-page #noticeTime{
-    display:block;
-    width:100% !important;
-    max-width:100% !important;
-    min-width:0 !important;
-    box-sizing:border-box !important;
-    padding:14px !important;
-    margin:10px 0 !important;
+@media screen and (max-width:600px){
+
+    .app{
+        width:100% !important;
+        max-width:390px !important;
+        box-sizing:border-box !important;
+    }
+
+    .phone{
+        width:100% !important;
+        max-width:390px !important;
+        box-sizing:border-box !important;
+    }
+
+    .short-page input{
+        width:100% !important;
+        max-width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+    }
+
+    #noticeTime{
+        width:100% !important;
+        max-width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+    }
 }
