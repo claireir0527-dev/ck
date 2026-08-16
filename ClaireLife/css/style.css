@@ -1755,3 +1755,46 @@ body.swal2-shown{
         type="time"
     >
 </div>
+@media screen and (max-width: 600px){
+
+    html,
+    body{
+        width:100%;
+        max-width:100%;
+        margin:0;
+        padding:0;
+        overflow-x:hidden;
+    }
+
+    .app{
+        width:100%;
+        max-width:390px;
+        margin:0 auto;
+        padding:0;
+        overflow:hidden;
+    }
+
+    .phone{
+        width:100%;
+        max-width:390px;
+        min-width:0;
+        margin:0;
+        padding:20px;
+        box-sizing:border-box;
+        overflow:hidden;
+    }
+
+    .phone > *{
+        max-width:100%;
+        box-sizing:border-box;
+    }
+
+    #noticeText,
+    #noticeDate,
+    #noticeTime{
+        width:100% !important;
+        max-width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+    }
+}
